@@ -1,4 +1,4 @@
-const mainApiURL = 'https://table-data.onrender.com/scrape';
+const mainApiURL = 'http://localhost:3000/scrape';
 
 const dataCardsContainer = document.querySelector('#data_cards');
 
@@ -18,7 +18,7 @@ then((mainData) => {
       // const detailsData = 
       await getData(`${mainApiURL}?id=${item[0]}`,async (detailsData)=>{
         // Use the detailsData to construct your HTML
-        const html = `<div id="job_${i}" class="jet-listing-grid__item jet-listing-dynamic-post-7478" data-post-id="7478"><div class="jet-engine-listing-overlay-wrap" >		<div data-elementor-type="jet-listing-items" data-elementor-id="461" class="elementor elementor-461" data-elementor-post-type="jet-engine">
+        const html = `<div id="job_${i}" class="jet-listing-grid__item jet-listing-dynamic-post-7478" data-post-id="7478"><div class="jet-engine-listing-overlay-wrap" style='cursor:auto'>		<div data-elementor-type="jet-listing-items" data-elementor-id="461" class="elementor elementor-461" data-elementor-post-type="jet-engine">
         <section class="elementor-section elementor-top-section elementor-element elementor-element-859a754 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="859a754" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;jet_parallax_layout_list&quot;:[{&quot;jet_parallax_layout_image&quot;:{&quot;url&quot;:&quot;&quot;,&quot;id&quot;:&quot;&quot;,&quot;size&quot;:&quot;&quot;},&quot;_id&quot;:&quot;0e50812&quot;,&quot;jet_parallax_layout_image_laptop&quot;:{&quot;url&quot;:&quot;&quot;,&quot;id&quot;:&quot;&quot;,&quot;size&quot;:&quot;&quot;},&quot;jet_parallax_layout_image_tablet_extra&quot;:{&quot;url&quot;:&quot;&quot;,&quot;id&quot;:&quot;&quot;,&quot;size&quot;:&quot;&quot;},&quot;jet_parallax_layout_image_tablet&quot;:{&quot;url&quot;:&quot;&quot;,&quot;id&quot;:&quot;&quot;,&quot;size&quot;:&quot;&quot;},&quot;jet_parallax_layout_image_mobile_extra&quot;:{&quot;url&quot;:&quot;&quot;,&quot;id&quot;:&quot;&quot;,&quot;size&quot;:&quot;&quot;},&quot;jet_parallax_layout_image_mobile&quot;:{&quot;url&quot;:&quot;&quot;,&quot;id&quot;:&quot;&quot;,&quot;size&quot;:&quot;&quot;},&quot;jet_parallax_layout_speed&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:50,&quot;sizes&quot;:[]},&quot;jet_parallax_layout_type&quot;:&quot;scroll&quot;,&quot;jet_parallax_layout_direction&quot;:null,&quot;jet_parallax_layout_fx_direction&quot;:null,&quot;jet_parallax_layout_z_index&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_x&quot;:50,&quot;jet_parallax_layout_bg_x_laptop&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_x_tablet_extra&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_x_tablet&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_x_mobile_extra&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_x_mobile&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_y&quot;:50,&quot;jet_parallax_layout_bg_y_laptop&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_y_tablet_extra&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_y_tablet&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_y_mobile_extra&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_y_mobile&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_size&quot;:&quot;auto&quot;,&quot;jet_parallax_layout_bg_size_laptop&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_size_tablet_extra&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_size_tablet&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_size_mobile_extra&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_size_mobile&quot;:&quot;&quot;,&quot;jet_parallax_layout_animation_prop&quot;:&quot;transform&quot;,&quot;jet_parallax_layout_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;]}]}">
         <div class="elementor-container elementor-column-gap-default">
         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a3ec7af" data-id="a3ec7af" data-element_type="column" style='height: 600px !important;overflow: hidden !important;'>
@@ -33,11 +33,11 @@ then((mainData) => {
         <div class="elementor-widget-wrap elementor-element-populated">
         <div class="elementor-element elementor-element-710eaa1 elementor-widget__width-inherit elementor-widget elementor-widget-text-editor" data-id="710eaa1" data-element_type="widget" data-widget_type="text-editor.default">
         <div class="elementor-widget-container">
-        ${mainData[i][1]}						</div>
+        ${detailsData[4]}						</div>
         </div>
         <div class="elementor-element elementor-element-2535909 elementor-widget__width-auto jedv-enabled--yes elementor-widget elementor-widget-text-editor" data-id="2535909" data-element_type="widget" data-widget_type="text-editor.default">
         <div class="elementor-widget-container">
-        New Listing						</div>
+        ${detailsData[0]} ${detailsData[1]}</div>
         </div>
         <div class="elementor-element elementor-element-349f58c elementor-widget elementor-widget-text-editor" data-id="349f58c" data-element_type="widget" data-widget_type="text-editor.default">
         <div class="elementor-widget-container">
@@ -45,7 +45,7 @@ then((mainData) => {
         </div>
         <div class="elementor-element elementor-element-349f58c elementor-widget elementor-widget-text-editor" data-id="349f58c" data-element_type="widget" data-widget_type="text-editor.default">
         <div class="elementor-widget-container">
-        ${detailsData[3].substring(1, 120)}...</div>
+        ${detailsData[3].substring(1, 120)}...<a class='read_more' href='#job_${i}' style='font-size:20px'>Read more</a></div>
         </div>
         </div>
         </div>
@@ -54,7 +54,7 @@ then((mainData) => {
         <div class="elementor-element elementor-element-a5e9d8d elementor-widget elementor-widget-button" data-id="a5e9d8d" data-element_type="widget" data-widget_type="button.default">
         <div class="elementor-widget-container">
         <div class="elementor-button-wrapper">
-        <a class="elementor-button elementor-button-link elementor-size-sm" href="#job_${i}">
+        <a class="elementor-button elementor-button-link elementor-size-sm" href="https://vetrelief.com/doctorlogin/?page=jobs_perm&sub=detail&id=${mainData[i][0]}">
         <span class="elementor-button-content-wrapper">
         <span class="elementor-button-text">View Listing »</span>
         </span>
@@ -70,7 +70,12 @@ then((mainData) => {
         </div></div>`;
   
         // Append the generated HTML to the dataCardsContainer
-        dataCardsContainer.innerHTML += html;
+        if (mainData[i][0] !== '104845' && mainData[i][0] !== '108262' ) {
+          dataCardsContainer.innerHTML += html;
+        }else{
+          dataCardsContainer.innerHTML += `<a style='display:none' class='read_more' href='#job_${i}' style='font-size:20px'>Read more</a>`
+        }
+        
    
         if (i==1) {
           document.querySelector('.loading-spinner').innerHTML = '';
@@ -118,7 +123,7 @@ async function getData(file,callback1 = (data)=>{console.log('default')}, callba
 function addClickEvent(Alldata){
   console.log(Alldata)
   console.log(document.querySelectorAll(".jet-listing-grid__item.jet-listing-dynamic-post-7478"))
-  document.querySelectorAll(".jet-listing-grid__item.jet-listing-dynamic-post-7478").forEach((el,index)=>{
+  document.querySelectorAll(".read_more").forEach((el,index)=>{
     el.addEventListener('click',()=>{
       const modal = `<div class="modal" id="modal">
         <div class="modal-content">
@@ -126,8 +131,8 @@ function addClickEvent(Alldata){
           <h3>${Alldata[index+1][1]}</h3>
           <div class="modal-area">
           <img src="${allFetchedData[index][2] != '' ? allFetchedData[index][2]: 'https://vetrelief.com/tmpl/images2/VetRelief-Logo-COLOR-withoutappicons.png'}">
-          <h5 style="color:black">State:</h5><span> ${allFetchedData[index][0]}</span>
-          <h5 style="color:black">City:</h5><span> ${allFetchedData[index][1]}</span>
+          <h5 style="color:black">City:</h5><span> ${allFetchedData[index][0]}</span>
+          <h5 style="color:black">State:</h5><span> ${allFetchedData[index][1]}</span>
           <h5 style="color:black">DESCRIPTION</h5>
             ${allFetchedData[index][3]}   
           </div>
