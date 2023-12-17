@@ -1,4 +1,4 @@
-const mainApiURL = 'http://localhost:3000/scrape';
+const mainApiURL = 'https://table-data.onrender.com/scrape';
 
 const dataCardsContainer = document.querySelector('#data_cards');
 
