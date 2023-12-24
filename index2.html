@@ -1,0 +1,604 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="https://www.w3.org/1999/xhtml">
+<!-- Mirrored from vetrelief.com/contact.phtml by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 23 Dec 2023 14:44:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width">
+<title>VetRelief.com - Post Jobs | Hire Vets | Since 1990.</title>
+
+<link href="tmpl/css/Master.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="tmpl/slick-1.8.1/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="tmpl/slick-1.8.1/slick/slick-theme.css" />
+<script src="tmpl/SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
+<script src="tmpl/Scripts/responsive-menu.js" type="text/javascript"></script>
+<script type="text/javascript" src="../ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	// Identify browsers with zero CORS support (old IE) and redirect them right away - to the correct page.
+
+	var authurl = "index.html";
+
+	// Identify browsers with zero CORS support (old IE) and redirect them right away - to the correct page.
+	if(!('withCredentials' in new XMLHttpRequest())) {
+		if(window.location != authurl) {	window.location.replace(authurl);	}
+	}
+	
+	$('a.login-window').click(function() { return showLoginBox() });
+	
+	// When clicking on the button close or the mask layer the popup closed
+	$('a.close, #mask').live('click', function() { return hideLoginBox() } );
+});
+
+function showLoginBox() {
+	// Getting the variable's value from a link 
+	var loginBox = "#login-box";
+
+	//Fade in the Popup and add close button
+	$(loginBox).fadeIn(300);
+	
+	//Set the center alignment padding + border
+	var popMargTop = ($(loginBox).height() + 24) / 2; 
+	var popMargLeft = ($(loginBox).width() + 24) / 2; 
+	
+	$(loginBox).css({ 
+		'margin-top' : -popMargTop,
+		'margin-left' : -popMargLeft
+	});
+	
+	// Add the mask to body
+	$('body').append('<div id="mask"></div>');
+	$('#mask').fadeIn(300);
+	
+	return false;	
+}
+
+function hideLoginBox() {
+	$('#mask , .login-popup').fadeOut(300 , function() {
+		$('#mask').remove();  
+	}); 
+	return false;
+}
+
+// this is used to prevent the login 'go' button from submitting the form directly
+function testXMLAuth1() {
+	return false;
+}
+
+// this queries the server with the login info, and handles updating the UI or redirecting to the login area.
+function testXMLAuth() {
+	
+	// Determine if the Browser supports CORS or not. This is mostly for the benefit of obsolete Inernet Explorer versions so many people use still.
+	var xmlhttp;
+
+	// Do the Thing.
+	var url = "login.ajax.html";
+
+	// obtain the username and password entered into the Form.
+	var ln = document.getElementById("login").elements.namedItem("VET_AUTH_USER").value;
+	var pw = document.getElementById("login").elements.namedItem("VET_AUTH_PW").value;
+	
+	// copy the CLEAN status from the form.
+	var clean = document.getElementById("login").elements.namedItem("LOGIN_FORM").value;
+	
+	var payload = "LOGIN_FORM=" + clean + "&VET_AUTH_USER=" + ln + "&VET_AUTH_PW=" + pw;
+
+	// begin determining browser specifics
+	if('withCredentials' in new XMLHttpRequest()) {
+		// full support for normal CORS behavior
+		xmlhttp = new XMLHttpRequest();	
+		
+		// NOTE THIS REGISTERS A HOOK
+		xmlhttp.onreadystatechange=function() {
+			if(xmlhttp.readyState==4 && xmlhttp.status==200) {
+				if(xmlhttp.responseText=="TRUE") {
+					// submit the true form.
+					document.getElementById("login").submit();
+				} else {
+					// display the returned error
+					document.getElementById("errorText").innerHTML=xmlhttp.responseText;
+				}
+			}
+		}
+  	
+			
+	} else {		
+		if(typeof XDomainRequest !== "undefined") {
+			// IE Specific CORS support
+			xmlhttp = new XDomainRequest();
+			// this is the mode detected by IE8
+		} else {
+			// early IE
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		function onload_ie() {
+			if(xmlhttp.responseText=="TRUE") {
+				// submit the true form.
+				document.getElementById("login").submit();
+			} else {
+				// display the returned error
+				document.getElementById("errorText").innerHTML=xmlhttp.responseText;
+			}	
+		}
+		
+		xmlhttp.onload=onload_ie;
+		xmlhttp.onprogress=onload_ie;
+		xmlhttp.onerror=function () { document.getElementById("errorText").innerHTML="err"; }
+		xmlhttp.ontimeout=function () { document.getElementById("errorText").innerHTML="timeout"; }
+	}
+
+	xmlhttp.open("POST.html",url,true);
+
+	// IE doesn't want this either.
+	if('withCredentials' in new XMLHttpRequest()) {
+		// send the data
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xmlhttp.setRequestHeader("Content-length", payload.length);
+		xmlhttp.setRequestHeader("Connection", "close");
+	}
+
+	xmlhttp.send(payload);
+	// we're done requesting data from the server - the state change hook above will catch the response.
+
+	// blank the error text to make the retry more apparent.
+	document.getElementById("errorText").innerHTML="Please Wait ...";
+} // end testXMLAuth()
+
+
+
+</script>
+<style>
+
+.GenLayout #LoginFormJS  {
+	float: left;
+	font-size: 12px;
+}
+
+#LoginForm  {
+	background-image: url(tmpl/index.html);
+	background-repeat: no-repeat;
+	background-position: right top;
+	height: 440px;
+	width: 100%;
+	padding: -10px;
+	z-index: auto;
+	position: relative;
+}
+
+.columnBox{
+	width:490px;
+}
+
+.padleft {
+	padding-left: 10px;
+	padding-top: 20px;
+}
+
+/* Mask for background, by default is not display */
+#mask {
+	display: none;
+	background: #000;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+	z-index: 999;
+}
+
+/* You can customize to your needs  */
+.login-popup {
+	font-family:"Trebuchet MS", Optima, Helvetica, sans-serif;
+	width: 300px;
+	display: none;
+	background-color: #004455;	// ie8 does not support transparency (or maybe its that XP doesnt)
+	padding: 10px;
+	border: 2px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 99999;
+	box-shadow: 0px 0px 20px #999;
+	/* CSS3 */
+	-moz-box-shadow: 0px 0px 20px #999;
+	/* Firefox */
+	-webkit-box-shadow: 0px 0px 20px #999;
+	/* Safari, Chrome */
+	border-radius: 5px;
+	-moz-border-radius: 3px;
+	/* Firefox */
+	-webkit-border-radius: 3px;
+	/* Safari, Chrome */;
+}
+
+img.btn_close {
+ 	Position the close button  
+ 	float: right;
+	margin: -28px -28px 0 0;
+}
+
+fieldset {
+	border: none;
+}
+
+form.signin .textbox label {
+	display: block;
+	padding-bottom: 7px;
+}
+
+form.signin .textbox span {
+	display: block;
+}
+
+form.signin p, form.signin span {
+	color: rgba(251,247,247,1.00);
+	font-size: 11px;
+	line-height: 18px;
+}
+
+form.signin .textbox input {
+	background: #666666;
+	border-bottom: 1px solid #333;
+	border-left: 1px solid #000;
+	border-right: 1px solid #333;
+	border-top: 1px solid #000;
+	color: #fff;
+	border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	font: 13px Arial, Helvetica, sans-serif;
+	padding: 6px 6px 4px;
+	width: 200px;
+}
+
+ form.signin input:-moz-placeholder {
+ color: #bbb;
+ text-shadow: 0 0 2px #000;
+}
+
+ form.signin input::-webkit-input-placeholder {
+ color: #bbb;
+ text-shadow: 0 0 2px #000;
+}
+
+.button {
+	padding: 6px 6px 4px;
+	margin-top: 10px;
+	width: 50px;
+	float: left;
+	background: -moz-linear-gradient(center top, #f3f3f3, #dddddd);
+	background: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#dddddd));
+	background: -o-linear-gradient(top, #f3f3f3, #dddddd);
+ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f3f3f3', EndColorStr='#dddddd');
+	border-color: #000;
+	border-width: 1px;
+	border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	color: #333;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.button h2{
+	padding-left:10px;
+}
+
+.button:hover {
+	background: rgba(249,184,32,1.00);
+}
+
+.forgot {
+	color: rgba(248,244,244,1.00);
+	margin-top: 10px;
+	float: left;
+	width:100%;
+}
+a.forgot{
+	font-size: .7em;
+}
+.forgot a:link {
+
+	text-decoration:none;
+	color:rgba(248,186,12,1.00)
+}
+
+.logintext {
+	float: left;
+	color: rgba(252,245,245,1.00);
+	width: 75%;
+	margin-top: 10px;
+}
+
+.login {
+	margin: 4px;
+	float: left;
+	background-color: rgba(226,224,224,.1);
+	height: 120px;
+	font-family: "Trebuchet MS", Optima, Helvetica, sans-serif;
+	font-size:16px;
+	line-height:21px;
+}
+
+.login a:link {
+	display: block;
+	text-decoration:none;
+	color:rgba(77,200,243,1.00);
+}
+
+.login a:hover {
+	display: block;
+	text-decoration:none;
+	color:rgba(250,248,248,1.00);
+}
+
+
+.button {
+	padding: 6px 6px 4px;
+	margin-top: 10px;
+	width: 220px;
+	float: left;
+	background: -moz-linear-gradient(center top, #f3f3f3, #dddddd);
+	background: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#dddddd));
+	background: -o-linear-gradient(top, #f3f3f3, #dddddd);
+ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f3f3f3', EndColorStr='#dddddd');
+	border-color: #000;
+	border-width: 1px;
+	border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	color: #333;
+	cursor: pointer;
+	display: inline-block;
+	color:rgba(77,200,243,1.00);
+	}
+
+.button:hover {
+	background:rgba(77,200,243,1.00);
+}
+
+#go{
+	width:50px;
+}
+#vetlogin {
+	background-repeat: no-repeat;
+	height: 120px;
+
+}
+#hosplogin {
+	background-repeat: no-repeat;
+	height: 120px;
+
+}
+
+#handbook {
+	background-repeat: no-repeat;
+	height: 120px;
+
+}
+
+
+#register {
+	background-repeat: no-repeat;
+	height: 120px;
+
+}
+
+#register p a{
+	
+}
+
+.close{
+	float:right;
+}
+
+</style></head>
+
+<body  class="GenLayout">
+		<div id="container">
+  
+    
+  <div id="header">
+     <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr align="left">
+        <td>
+        	<img src="tmpl/images/VR_Header2023.gif" width="345" height="137">
+        
+        </td>
+        <td width="64%"><img src="tmpl/image_roto/Quotes.13.png" alt="" name="rotate" width="648" height="137" align="right" id="rotate" style="background-color: #000000" /></td>
+      </tr>
+    </table>
+   </div><!-- end #header -->
+
+<div id="Menu">
+	<ul id="MenuBar1" class="MenuBarHorizontal MenuBarActive">
+		<li><a href="finfo.html" class="MenuBarItemSubmenu">Veterinary Facility</a>
+			<ul>
+				<li><a href="finfo.html">How It Works?</a></li>
+				<li><a href="postjob.html">Post A Job</a></li>
+    			</ul>
+		</li>
+		<li><a href="pinfo.html" class="MenuBarItemSubmenu">Relief Veterinarian</a>
+			<ul>
+				<li><a href="pinfo.html">How It Works?</a></li>
+				<li><a href="search.html">Search Jobs</a></li>
+			</ul>
+		</li>
+
+<li><a href="specialists.html" class="MenuBarItemSubmenu">Mobile Specialist&nbsp;<font color="#990000">new</font></a>
+			<ul>
+				<li><a href="specialists.html">How It Works?</a></li>
+			</ul>
+		</li>
+
+		
+		<li><a href="index.html#" class="MenuBarItemSubmenu">Vets2Vets</a>
+			<ul>
+				<li><a href="apps.html">Get the App</a></li>
+			        <li><a href="boost.html">Boost Your Post</a></li>				
+				<li><a href="specialists.html">Mobile Specialists&nbsp;<font color="#990000">new</font></a></li>
+				<li><a href="downloads.html">Download Forms</a></li>
+				<li><a href="for_sale.html">Hospitals for Sale</a></li>
+				<li><a href="cancelation.html">Cancelation Guidelines</a></li>
+				<li><a href="resources.html">Industry Ads & Enterprise</a></li>
+			</ul>
+		</li>
+		<li><a href="faq.html">FAQ</a></li>
+		<li><a href="register.html">Create an Account</a></li>
+		<li><a href="login_form.html" class="login-window">Login</a></li>
+		<li><a href="contact.html">Contact Us</a></li>
+	</ul>
+</div>
+<div id="Menu-responsive">
+	<div class="responsive-menu-title">Menu <span class="caret"></span></div>
+	<ul class="menu-ul-responsive">
+		<li class="dropdown"><a href="#">Veterinary Facility <span class="caret"></span></a>
+			<ul>
+				<li><a href="finfo.html">How It Works?</a></li>
+				<li><a href="postjob.html">Post A Job</a></li>
+			</ul>
+		</li>
+		<li class="dropdown"><a href="#">Relief Veterinarian <span class="caret"></span></a>
+			<ul>
+				<li><a href="pinfo.html">How It Works?</a></li>
+				<li><a href="search.html">Search Jobs</a></li>
+			</ul>
+		</li>
+		<li><a href="register.html">Create an Account</a></li>
+		<li class="dropdown"><a href="#">Vets2Vets <span class="caret"></span></a>
+			<ul>
+				<li><a href="downloads.html">Download Forms</a></li>
+				<li><a href="for_sale.html">Hospitals for Sale</a></li>
+				<li><a href="cancelation.html">Cancelation Policy</a></li>
+				<li><a href="resources.html">Enterprise</a></li>
+			</ul>
+		</li>
+		<li><a href="faq.html">FAQ</a></li>
+		<li><a href="contact.html">Contact</a></li>
+		<li><a href="login_form.html" class="login-window">Login</a></li>
+	</ul>
+</div>
+
+<div id="mainContent">
+<p id="error" class="errorText"> </p>
+	
+<style>
+	.login-header-text {
+		text-align: center;
+		color: #FFF;
+		padding-top: 10px;
+	}
+	@media (max-width: 728px) {
+		.logintext,
+		label.username,
+		#loginP2,
+		#loginP {
+			float: none;
+			width: 100%;
+			margin: 5px 0;
+		}
+		.button#go {
+			float: none;
+			text-align: center;
+			width: 100%;
+			background: none;
+			padding: 0;
+		}
+		.button#go input {
+			border: 5px solid #f3f3f3;
+			border-radius: 10px;
+		}
+		a.forgot {
+			font-size: 1em;
+		}
+		#mask {
+			opacity: 1;
+		}
+	}
+	</style>
+	<div id="login-box" class="login-popup"> <a href="#" class="close"><img src="login/images/close_pop.png" class="btn_close right" title="Close Window" alt="Close" /></a>
+		<div class='login-header-text'>Please Login</div> <br><div class="errorText" id="errorText"></div><br>
+		<form id="login" name="login" method="post" action="https://vetrelief.com/login.phtml" onsubmit="return testXMLAuth1();">
+		<input type="hidden" name="LOGIN_FORM" value="0" /><input type="hidden" name="page" value="contact">	  <fieldset class="textbox">
+		  <div class="logintext">
+			<label class="username"> <span>Username</span>
+			  <input name="VET_AUTH_USER" type="text" id="loginP2" size="11" placeholder="Login">
+			</label>
+			<label class="password"> <span>Password</span>
+			  <input name="VET_AUTH_PW" type="password" id="loginP" size="11" placeholder="Password">
+			</label>
+		  </div>
+		  <div class="button" id="go">
+			<input name="submit" type="image" src="tmpl/images2/Go_Button.png" alt="submit"  onclick="testXMLAuth()" width="50" height="50">
+		  </div>  <p><a class="forgot" href="reset.html">Forgot your password?</a></p>	  <p><a class="forgot" href="register.html">New to VetRelief.com? Create an Account.</a></p>
+		</fieldset>
+		
+		  
+	  </form>
+	</div><script type="text/javascript">
+  var onloadCallback = function() {
+    grecaptcha.render('html_element_recaptcha', {'sitekey':'6Lfhv8oSAAAAAMfe3eM6VwVKK3zbSfgvZYkk9yVi'});
+  };
+</script>
+
+<script src="../www.google.com/recaptcha/api85f1.js?onload=onloadCallback&amp;render=explicit" async defer>
+</script></div>					
+
+  <div id="footer">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="GenLayout" id="TableF">
+      <tr>
+        <td width="40%" valign="top" class="GenLayout"><p>© 1999-2023 VRS | <a href="fterms.html">Terms</a> | <a href="privacy.html">Privacy</a>  | <a href="contact.html"> Contact Us</a></p></td>
+		<td width="20%" valign="middle" class="GenLayout"><div align="center">v3.2.27r2</div></td>
+        <td width="40%" valign="middle" class="GenLayout"><div align="right">
+          <p>Hosting &amp; Programming : <a href="http://www.niftywerks.com/" target="_blank">Niftywerks, Inc.</a> &nbsp; &nbsp; &nbsp;</p>
+        </div></td>
+      </tr>
+    </table>
+    <!-- end #footer -->
+  </div>
+			<!-- end #container --></div>
+<script type="text/javascript">
+<!--
+var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgDown:"https://vetrelief.com/tmpl/SpryAssets/SpryMenuBarDownHover.gif", imgRight:"https://vetrelief.com/tmpl/SpryAssets/SpryMenuBarRightHover.gif"});
+//-->
+        </script>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3941141-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script></body>
+<script src="../ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="../code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="tmpl/slick-1.8.1/slick/slick.min.js"></script>
+<script>
+$(document).ready(function() {
+	if ($('.ad-carousel').length > 0) {
+		$('.ad-carousel').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 2000
+		});
+	}
+	$('select[id^="adid-"').on('change', function() {
+		var edit_url = 'contact6034.html?page=featuredads&amp;sub=edit&amp;adid=';
+		var adid = $(this).attr('id').split('-');
+	    window.location = '/admin/' + edit_url + adid[1];
+	});
+});
+</script>
+
+<!-- Mirrored from vetrelief.com/contact.phtml by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 23 Dec 2023 14:44:03 GMT -->
+</html>

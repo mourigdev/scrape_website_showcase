@@ -1,0 +1,36 @@
+@charset "UTF-8";
+#calendar h1 {
+	font-family: "Trebuchet MS", Optima, Helvetica, sans-serif;
+	font-size: 22px;
+	text-align: center;
+	color: #666666;
+}
+#calendar h5 {
+	text-align: center;
+	font-size: 12px;
+	line-height: 15px;
+}
+#calendar  h6  {
+	font-family: "Trebuchet MS", Optima, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: right;
+}
+#calendar p {
+	font-family: "Trebuchet MS", Optima, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	line-height: 11px;
+}
+#calendar a:link {
+	color: #009999;
+	text-decoration: none;
+	line-height: 11px;
+}
+#calendar a:hover {
+	color: #FFCC33;
+}
+#calendar a:visited {
+	color: #00CCCC;
+	text-decoration: none;
+}

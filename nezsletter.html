@@ -1,0 +1,262 @@
+<aside>
+    <dole-back-to-top></dole-back-to-top>
+    <script id="dole-newsletter-signup-config" type="application/json">
+      {"themes":{"apple":{"color":"hsl(341,100%,32%)","src":"/-/media/project/dole/newsletter-images/newsletter-signup-placeholder/newsletter-signup-apple.png?h=350&w=350&rev=669578cae0154d338decd25c33baa861&hash=58B001B2F34B5C2B87A85A169E526CD4"},"artichoke":{"color":"hsl(38,40%,54%)","src":"/-/media/project/dole/newsletter-images/newsletter-signup-placeholder/newsletter-signup-artichoke.png?h=350&w=350&rev=c6d7a33133fe4a22aa725685c335266d&hash=3B07931E8297E9719B449CAC1D996F06"},"banana":{"color":"hsl(51,100%,47%)","src":"/-/media/project/dole/newsletter-images/newsletter-signup-placeholder/newsletter-signup-banana.png?h=350&w=350&rev=c84ab03f8ac040bdb5d0333c5bc6fb94&hash=39E2E6873179663EDA6D0A7EF6914278"},"lettuce":{"color":"hsl(83,60%,67%)","src":"/-/media/project/dole/newsletter-images/newsletter-signup-placeholder/newsletter-signup-lettuce.png?h=350&w=350&rev=be54ad0b555c479b835eec9e3f061bfc&hash=37135814A7F07890E0A84F9D5016E105"},"orange":{"color":"hsl(38,100%,50%)","src":"/-/media/project/dole/newsletter-images/newsletter-signup-placeholder/newsletter-signup-orange.png?h=350&w=350&rev=6f441163da93406c9338e54780997a12&hash=06166E574ACAC392D55D05FB44A8B37C"}},"form":{"emailLabel":"Email address","emailPlaceholder":"Enter your email address","emailInvalidMessage":"Invalid email address.","firstNameLabel":"First name","firstNamePlaceholder":"First name","lastNameLabel":"Last name","lastNamePlaceholder":"Last name","zipLabel":"Zip code","zipPlaceholder":"Zip code","formRequestUrl":"/api/newsletter/subscribe/full","formDisclaimer":"By submitting your email, you agree to our <a href=\"/en/about-us/terms-of-use\">Terms and Conditions.</a>","formSubmitLabel":"Sign up now","formSubmissionErrorMessage":"Error submitting the form.","formSubmissionSuccessMessage":"Thanks! You've been subscribed to our mailing list."}}
+    </script>
+    <div class="theme">
+            <div class="theme-color" style="background-color: rgb(183, 221, 120);
+                position: absolute;
+                left: 0px;
+                width: 100%;
+                top: 0px;
+                height: 100%;
+                opacity: 0.25;
+                z-index: 0;"></div>
+            <dole-responsive-layou style='display:grid;gap: 24px;
+            grid-template-columns: minmax(20ch, 1fr) 250px 1.5fr;
+            grid-template-areas: "content-container image-container form-container";'>
+              <div class="image-container">
+                <div role="presentation" class="img-wrapper img-wrapper--full" style="background-image: url(&quot;/-/media/project/dole/newsletter-images/newsletter-signup-placeholder/newsletter-signup-lettuce.png?h=350&amp;w=350&amp;rev=be54ad0b555c479b835eec9e3f061bfc&amp;hash=37135814A7F07890E0A84F9D5016E105&quot;);"></div>
+              </div>
+    
+              <div class="content-container">
+                <div class="content">
+                  <slot></slot>
+                </div>
+              </div>
+    
+              <div class="form-container">
+                <div class="form">
+                  
+                    <form novalidate="">
+                        <div class="double-row" style="display: flex;">
+                            <dole-field-wrapper>
+                                <label style="display: block;
+                                color: rgb(78, 44, 29);
+                                padding-top: calc(8.33333rem - 6.66667vw);
+                                position: relative;
+                                display: block;
+                                margin-bottom: 4px;
+                                order: -1;
+                                font-weight: 700;
+                                font-size: 20px;"><!---->First name<!----></label>
+                                <dole-text-field type="first" name="first" required="" label="First name" placeholder="First name" id="dole-text-field-6" class="" style="    display: flex;">
+                                    <dole-field-wrapper style="position: relative;
+                                    display: inline-flex;
+                                    -webkit-box-align: center;
+                                    align-items: center;
+                                    -webkit-box-flex: 1;
+                                    flex: 1 1 auto;
+                                    color: rgb(78, 44, 29);
+                                    background-color: rgb(255, 255, 255);
+                                    border: 2px solid rgb(217, 214, 201);
+                                    padding: 8px;
+                                    height: 50px;
+                                    border-radius: 8px;
+                                    min-width: 33.3333%;
+                                    font-size: 16px;
+                                    font-weight: 400;
+                                    line-height: 1;
+                                    cursor: text;
+                                    box-sizing: border-box !important;"><input id="dole-text-field-6-input" slot="dole-text-field-6-input" type="text" name="first" placeholder="First name" aria-label="First name" required="" style="    -webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+display: block;
+width: 100%;
+border: none;
+color: inherit;
+background-color: transparent;
+font-family: inherit;
+font-size: inherit;
+font-weight: inherit;
+line-height: inherit;
+outline: none;
+box-sizing: border-box;"><datalist slot="dole-text-field-7-input"></datalist><style id="p0clcrum1-dole-text-field">dole-text-field input{-webkit-appearance:none;-moz-appearance:none;appearance:none;display:block;width:100%;border:none;color:inherit;background-color:transparent;font-family:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;outline:none;box-sizing:border-box}dole-text-field input::-webkit-search-cancel-button,dole-text-field input::-webkit-search-decoration,dole-text-field input::-webkit-search-results-button,dole-text-field input::-webkit-search-results-decoration{display:none}dole-text-field input::-ms-clear{display:none}dole-text-field .awesomplete{position:relative;display:block;width:100%;z-index:1050}dole-text-field .awesomplete [hidden]{display:none}dole-text-field .awesomplete .visually-hidden{position:absolute;clip:rect(0,0,0,0)}dole-text-field .awesomplete>ul{position:absolute;display:block;left:0;z-index:1;min-width:100%;box-sizing:border-box;list-style:none;padding:0;border-radius:4px;margin:.5em 0 0;background-color:#fff;border:1px solid #d9d6c9;box-shadow:.05em .2em .6em rgba(0,0,0,.2);text-shadow:none}dole-text-field .awesomplete>ul:empty{display:none}dole-text-field .awesomplete>ul>li{position:relative;display:block;padding:.5em;color:#4e2c1d;cursor:pointer}dole-text-field .awesomplete>ul>li:hover{background-color:#f1ede4}dole-text-field .awesomplete>ul>li[aria-selected=true]{background-color:#d9d6c9}dole-text-field .awesomplete li:hover mark,dole-text-field .awesomplete li[aria-selected=true] mark,dole-text-field .awesomplete mark{background-color:#b7dd78}dole-text-field[autocomplete-dir=up] .awesomplete>ul{bottom:1.5em}</style></dole-text-field>
+                                
+                              </dole-field-wrapper>
+                          <dole-field-wrapper>
+                            <label style="    display: block;
+                            color: rgb(78, 44, 29);
+                            padding-top: calc(8.33333rem - 6.66667vw);
+                            position: relative;
+                            display: block;
+                            margin-bottom: 4px;
+                            order: -1;
+                            font-weight: 700;
+                            font-size: 20px;"><!---->First name<!----></label>
+                            <dole-text-field type="first" name="first" required="" label="First name" placeholder="First name" id="dole-text-field-6" class="" style="    display: flex;">
+                                <dole-field-wrapper style="position: relative;
+                                display: inline-flex;
+                                -webkit-box-align: center;
+                                align-items: center;
+                                -webkit-box-flex: 1;
+                                flex: 1 1 auto;
+                                color: rgb(78, 44, 29);
+                                background-color: rgb(255, 255, 255);
+                                border: 2px solid rgb(217, 214, 201);
+                                padding: 8px;
+                                height: 50px;
+                                border-radius: 8px;
+                                min-width: 33.3333%;
+                                font-size: 16px;
+                                font-weight: 400;
+                                line-height: 1;
+                                cursor: text;
+                                box-sizing: border-box !important;"><input id="dole-text-field-6-input" slot="dole-text-field-6-input" type="text" name="first" placeholder="First name" aria-label="First name" required="" style="    -webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+display: block;
+width: 100%;
+border: none;
+color: inherit;
+background-color: transparent;
+font-family: inherit;
+font-size: inherit;
+font-weight: inherit;
+line-height: inherit;
+outline: none;
+box-sizing: border-box;"><datalist slot="dole-text-field-7-input"></datalist><style id="p0clcrum1-dole-text-field">dole-text-field input{-webkit-appearance:none;-moz-appearance:none;appearance:none;display:block;width:100%;border:none;color:inherit;background-color:transparent;font-family:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;outline:none;box-sizing:border-box}dole-text-field input::-webkit-search-cancel-button,dole-text-field input::-webkit-search-decoration,dole-text-field input::-webkit-search-results-button,dole-text-field input::-webkit-search-results-decoration{display:none}dole-text-field input::-ms-clear{display:none}dole-text-field .awesomplete{position:relative;display:block;width:100%;z-index:1050}dole-text-field .awesomplete [hidden]{display:none}dole-text-field .awesomplete .visually-hidden{position:absolute;clip:rect(0,0,0,0)}dole-text-field .awesomplete>ul{position:absolute;display:block;left:0;z-index:1;min-width:100%;box-sizing:border-box;list-style:none;padding:0;border-radius:4px;margin:.5em 0 0;background-color:#fff;border:1px solid #d9d6c9;box-shadow:.05em .2em .6em rgba(0,0,0,.2);text-shadow:none}dole-text-field .awesomplete>ul:empty{display:none}dole-text-field .awesomplete>ul>li{position:relative;display:block;padding:.5em;color:#4e2c1d;cursor:pointer}dole-text-field .awesomplete>ul>li:hover{background-color:#f1ede4}dole-text-field .awesomplete>ul>li[aria-selected=true]{background-color:#d9d6c9}dole-text-field .awesomplete li:hover mark,dole-text-field .awesomplete li[aria-selected=true] mark,dole-text-field .awesomplete mark{background-color:#b7dd78}dole-text-field[autocomplete-dir=up] .awesomplete>ul{bottom:1.5em}</style></dole-text-field>
+                            
+                          </dole-field-wrapper>
+                        </div>
+                        <div class="double-row" style="    display: flex;">
+                          <dole-field-wrapper>
+                            <label style="    position: relative;
+                            display: block;
+                            margin-bottom: 4px;
+                            order: -1;
+                            font-weight: 700;
+                            cursor: default;
+                            display: flex;
+                            -webkit-box-orient: vertical;
+                            -webkit-box-direction: normal;
+                            flex-direction: column;
+                            -webkit-box-pack: end;
+                            justify-content: flex-end;
+                            font-size: 1rem;"><!---->Email address<!----></label>
+                            <dole-text-field type="email" name="email" required="" label="Email address" placeholder="Enter your email address" id="dole-text-field-8" class="" style="position: relative;
+                            display: inline-flex;
+                            -webkit-box-align: center;
+                            align-items: center;
+                            -webkit-box-flex: 1;
+                            flex: 1 1 auto;
+                            color: rgb(78, 44, 29);
+                            background-color: rgb(255, 255, 255);
+                            border: 2px solid rgb(217, 214, 201);
+                            padding: 8px;
+                            height: 50px;
+                            border-radius: 8px;
+                            min-width: 33.3333%;
+                            font-size: 16px;
+                            font-weight: 400;
+                            line-height: 1;
+                            cursor: text;
+                            box-sizing: border-box !important;    display: flex;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+flex-direction: column;
+-webkit-box-pack: end;
+justify-content: flex-end;
+font-size: 1rem;"><input id="dole-text-field-8-input" slot="dole-text-field-8-input" type="email" name="email" placeholder="Enter your email address" aria-label="Email address" required="" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" style="    -webkit-appearance: none;
+                                -moz-appearance: none;
+                                appearance: none;
+                                display: block;
+                                width: 100%;
+                                border: none;
+                                color: inherit;
+                                background-color: transparent;
+                                font-family: inherit;
+                                font-size: inherit;
+                                font-weight: inherit;
+                                line-height: inherit;
+                                outline: none;
+                                box-sizing: border-box;"><datalist slot="dole-text-field-8-input"></datalist><style id="p0clcrum1-dole-text-field">dole-text-field input{-webkit-appearance:none;-moz-appearance:none;appearance:none;display:block;width:100%;border:none;color:inherit;background-color:transparent;font-family:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;outline:none;box-sizing:border-box}dole-text-field input::-webkit-search-cancel-button,dole-text-field input::-webkit-search-decoration,dole-text-field input::-webkit-search-results-button,dole-text-field input::-webkit-search-results-decoration{display:none}dole-text-field input::-ms-clear{display:none}dole-text-field .awesomplete{position:relative;display:block;width:100%;z-index:1050}dole-text-field .awesomplete [hidden]{display:none}dole-text-field .awesomplete .visually-hidden{position:absolute;clip:rect(0,0,0,0)}dole-text-field .awesomplete>ul{position:absolute;display:block;left:0;z-index:1;min-width:100%;box-sizing:border-box;list-style:none;padding:0;border-radius:4px;margin:.5em 0 0;background-color:#fff;border:1px solid #d9d6c9;box-shadow:.05em .2em .6em rgba(0,0,0,.2);text-shadow:none}dole-text-field .awesomplete>ul:empty{display:none}dole-text-field .awesomplete>ul>li{position:relative;display:block;padding:.5em;color:#4e2c1d;cursor:pointer}dole-text-field .awesomplete>ul>li:hover{background-color:#f1ede4}dole-text-field .awesomplete>ul>li[aria-selected=true]{background-color:#d9d6c9}dole-text-field .awesomplete li:hover mark,dole-text-field .awesomplete li[aria-selected=true] mark,dole-text-field .awesomplete mark{background-color:#b7dd78}dole-text-field[autocomplete-dir=up] .awesomplete>ul{bottom:1.5em}</style></dole-text-field>
+                            
+                          </dole-field-wrapper>
+                          <dole-field-wrapper class="zip-field" style="    -webkit-box-flex: 0;
+                          flex: 0 0 auto;
+                          width: 7em;">
+                            <label style="    position: relative;
+                            display: block;
+                            margin-bottom: 4px;
+                            order: -1;
+                            font-weight: 700;
+                            cursor: default;
+                            display: flex;
+                            -webkit-box-orient: vertical;
+                            -webkit-box-direction: normal;
+                            flex-direction: column;
+                            -webkit-box-pack: end;
+                            justify-content: flex-end;
+                            font-size: 1rem;"><!---->Zip code<!----></label>
+                            <dole-text-field type="zip" name="zip" required="" label="Zip code" placeholder="Zip code" id="dole-text-field-9" class="" style="position: relative;
+                            display: inline-flex;
+                            -webkit-box-align: center;
+                            align-items: center;
+                            -webkit-box-flex: 1;
+                            flex: 1 1 auto;
+                            color: rgb(78, 44, 29);
+                            background-color: rgb(255, 255, 255);
+                            border: 2px solid rgb(217, 214, 201);
+                            padding: 8px;
+                            height: 50px;
+                            border-radius: 8px;
+                            min-width: 33.3333%;
+                            font-size: 16px;
+                            font-weight: 400;
+                            line-height: 1;
+                            cursor: text;
+                            box-sizing: border-box !important;"><input id="dole-text-field-9-input" slot="dole-text-field-9-input" type="text" name="zip" placeholder="Zip code" aria-label="Zip code" required="" style="    -webkit-appearance: none;
+                                -moz-appearance: none;
+                                appearance: none;
+                                display: block;
+                                width: 100%;
+                                border: none;
+                                color: inherit;
+                                background-color: transparent;
+                                font-family: inherit;
+                                font-size: inherit;
+                                font-weight: inherit;
+                                line-height: inherit;
+                                outline: none;
+                                box-sizing: border-box;"><datalist slot="dole-text-field-9-input"></datalist><style id="p0clcrum1-dole-text-field">dole-text-field input{-webkit-appearance:none;-moz-appearance:none;appearance:none;display:block;width:100%;border:none;color:inherit;background-color:transparent;font-family:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;outline:none;box-sizing:border-box}dole-text-field input::-webkit-search-cancel-button,dole-text-field input::-webkit-search-decoration,dole-text-field input::-webkit-search-results-button,dole-text-field input::-webkit-search-results-decoration{display:none}dole-text-field input::-ms-clear{display:none}dole-text-field .awesomplete{position:relative;display:block;width:100%;z-index:1050}dole-text-field .awesomplete [hidden]{display:none}dole-text-field .awesomplete .visually-hidden{position:absolute;clip:rect(0,0,0,0)}dole-text-field .awesomplete>ul{position:absolute;display:block;left:0;z-index:1;min-width:100%;box-sizing:border-box;list-style:none;padding:0;border-radius:4px;margin:.5em 0 0;background-color:#fff;border:1px solid #d9d6c9;box-shadow:.05em .2em .6em rgba(0,0,0,.2);text-shadow:none}dole-text-field .awesomplete>ul:empty{display:none}dole-text-field .awesomplete>ul>li{position:relative;display:block;padding:.5em;color:#4e2c1d;cursor:pointer}dole-text-field .awesomplete>ul>li:hover{background-color:#f1ede4}dole-text-field .awesomplete>ul>li[aria-selected=true]{background-color:#d9d6c9}dole-text-field .awesomplete li:hover mark,dole-text-field .awesomplete li[aria-selected=true] mark,dole-text-field .awesomplete mark{background-color:#b7dd78}dole-text-field[autocomplete-dir=up] .awesomplete>ul{bottom:1.5em}</style></dole-text-field>
+                            
+                          </dole-field-wrapper>
+                        </div>
+            
+                        <div class="button-row" style="    text-align: right;
+                        margin-top: 8px;">
+                          <div class="button2">
+                            <dole-button type="submit" rank="primary" density="normal" style="    color: rgb(255, 255, 255);
+                            background-color: rgb(29, 119, 41);    font-size: 1.1875rem;font-weight: 700;
+position: relative;
+display: inline-flex;
+-webkit-box-align: center;
+align-items: center;
+-webkit-box-pack: center;
+justify-content: center;
+white-space: nowrap;
+user-select: none;
+overflow: visible;
+cursor: pointer;
+border-radius: 8px;
+min-width: 88px;
+min-height: 50px;
+padding: 4px 22px;
+line-height: 1.4;
+vertical-align: middle;
+transition: color 0.25s ease-out 0s, border-radius 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s, background-color 0.1s ease-in-out 0s;
+text-shadow: none;
+box-sizing: border-box !important;
+appearance: none !important;">
+                              Sign up now
+                            </dole-button>
+                          </div>
+                        </div>
+                      </form>
+                      
+                </div>
+              </div>
+            </dole-responsive-layout>
+          </div>
+    </aside>
