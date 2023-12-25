@@ -980,3 +980,12 @@ dole-field-wrapper{
     }
     /* Add more styles for smaller screens as needed */
   }
+
+
+
+  @media (max-width: 645px){
+
+    .elementor-section.elementor-section-boxed>.elementor-container1 {
+          max-width: 640px !important 
+      }
+  }
