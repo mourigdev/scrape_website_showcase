@@ -983,9 +983,49 @@ dole-field-wrapper{
 
 
 
+  
+  #badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#google img, #google a {
+    height: 96px;
+    width: 248px;
+}
+
+
+#apple a {
+    margin: 16px;
+}
+#apple img, #apple a {
+    height: 64px;
+    width: 190px;
+}
+
+#badgemessage {
+    text-align: center;
+    margin-top: 40px;
+}
+
+
   @media (max-width: 645px){
 
     .elementor-section.elementor-section-boxed>.elementor-container1 {
           max-width: 640px !important 
       }
+
+	  #google img, #google a {
+		height: 76px;
+		width: 190px;
+	}
+
+	#apple img, #apple a {
+		height: 54px;
+		width: 170px;
+	}
   }
+
+
+
