@@ -41,7 +41,7 @@ then((mainData) => {
         </div>
         <div class="elementor-element elementor-element-349f58c elementor-widget elementor-widget-text-editor" data-id="349f58c" data-element_type="widget" data-widget_type="text-editor.default">
         <div class="elementor-widget-container">
-        ${detailsData[3].substring(1, 120)}...<a class='read_more' href='#job_${i}' style='font-size:20px'>Read more</a></div>
+        ${detailsData[3].substring(1, 120)}...<a class='read_more' href='#job_${mainData[i][0]}' style='font-size:20px'>Read more</a></div>
         </div>
         </div>
         </div>
@@ -73,7 +73,7 @@ then((mainData) => {
         if (mainData[i][0] !== '104845' && mainData[i][0] !== '108262' ) {
           dataCardsContainer.innerHTML += html;
         }else{
-          dataCardsContainer.innerHTML += `<a style='display:none' class='read_more' href='#job_${i}' style='font-size:20px'>Read more</a>`
+          dataCardsContainer.innerHTML += `<a style='display:none' class='read_more' href='#job_${mainData[i][0]}' style='font-size:20px'>Read more</a>`
         }
         
    
@@ -125,10 +125,13 @@ function addClickEvent(Alldata){
   console.log(document.querySelectorAll(".jet-listing-grid__item.jet-listing-dynamic-post-7478"))
   document.querySelectorAll(".read_more").forEach((el,index)=>{
     el.addEventListener('click',()=>{
+      console.log(allMainData);
+      console.log(Alldata);
+      console.log(allFetchedData);
       const modal = `<div class="modal" id="modal">
         <div class="modal-content">
           <a style="cursor: pointer;" onclick="removeModal()" class="modal-close" title="Close Modal">X</a>
-          <h3>${Alldata[index+1][1]}</h3>
+          <h3 id="ourtitle"></h3>
           <div class="modal-area">
           <img src="${allFetchedData[index][2] != '' ? allFetchedData[index][2]: 'https://vetrelief.com/tmpl/images2/VetRelief-Logo-COLOR-withoutappicons.png'}">
           <h5 style="color:black">City:</h5><span> ${allFetchedData[index][0]}</span>
@@ -138,7 +141,14 @@ function addClickEvent(Alldata){
           </div>
         </div>
       </div>`
-        document.getElementById("wrapper").innerHTML = modal
+        document.getElementById("wrapper").innerHTML = modal;
+        setTimeout( ()=>{
+          let job_num = getJobNumber()
+          console.log(job_num)
+          let filteredArray = allMainData.filter(item => item[0] === job_num);
+          console.log(filteredArray)
+          document.getElementById("ourtitle").innerHTML = filteredArray[0][1]
+        },500)
     })
   })
 
@@ -170,4 +180,22 @@ function addClickEvent(Alldata){
 
 function removeModal() {
   document.querySelector('.modal').remove()
+}
+
+
+function getJobNumber() {
+  // Get the hash part from the current URL
+  const hashPart = window.location.hash;
+
+  // Define the prefix we are looking for
+  const prefix = "#job_";
+
+  // Check if the hash part starts with the desired prefix
+  if (hashPart.startsWith(prefix)) {
+      // Extract and return the part after the prefix
+      return hashPart.substring(prefix.length);
+  }
+
+  // If the prefix is not found, return null or an empty string
+  return null;
 }
